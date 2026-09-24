@@ -2982,7 +2982,7 @@ def build_sidebar(df: pd.DataFrame) -> pd.DataFrame:
         <div style="margin-top:20px; padding-top:12px; border-top:1px solid rgba(48,54,61,0.8);
              font-size:0.7rem; color:#484f58; text-align:center; line-height:1.5;">
           Urban Air Quality Intelligence<br>
-          CPCB India · Descriptive &amp; Diagnostic
+          <a href="https://drive.google.com/file/d/1ADfDemnRyd1lutyx1u0srnDBfsj1dKJz/view?usp=sharing">CPCB India Dataset</a>
         </div>
         """,
         unsafe_allow_html=True,
@@ -3635,9 +3635,7 @@ def main() -> None:
             Urban Air Quality Intelligence
         </strong>
         <span style="color:#303945; margin:0 8px;">•</span>
-        CPCB India Dataset
-        <span style="color:#303945; margin:0 8px;">•</span>
-        2015–2020 
+        Descriptive &amp; Diagnostic
         <span style="color:#303945; margin:0 8px;">•</span>
         ✦ Built by Deeptanu Sen
 
