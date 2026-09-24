@@ -201,8 +201,8 @@ Filtered Dataset
 ### 1. Clone the repository
 
 ```bash
-git clone <your-repository-url>
-cd <project-directory>
+git clone https://github.com/Deeptanu2005/Urban-Air-Quality-Intelligence.git
+cd Urban-Air-Quality-Intelligence 
 ```
 
 ### 2. Create a virtual environment
