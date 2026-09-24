@@ -23,6 +23,53 @@ An interactive Streamlit dashboard for analysing urban air quality across **26 I
 
 ---
 
+## 🌍 Dataset
+
+| Attribute | Value |
+|---|---|
+| **Source** | Central Pollution Control Board (CPCB), India |
+| **Dataset** | `city_day.csv` |
+| **Rows** | 29,531 |
+| **Columns** | 16 |
+| **Cities** | 26 |
+| **Coverage** | 2015-01-01 → 2020-07-01 |
+
+**Pollutants**
+
+`PM2.5` · `PM10` · `NO` · `NO₂` · `NOₓ` · `NH₃` · `CO` · `SO₂` · `O₃` · `Benzene` · `Toluene` · `Xylene`
+
+### Download
+
+🔗 **[Kaggle](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india?select=city_day.csv)**
+or,  
+🔗 **[Google Drive](https://drive.google.com/file/d/1ADfDemnRyd1lutyx1u0srnDBfsj1dKJz/view?usp=sharing)**
+
+---
+
+## 🧹 Data Preparation
+
+| Data issue | Treatment |
+|---|---|
+| Missing AQI | City-month median → city median |
+| Missing pollutants | City-month → city → global median |
+| Zero Benzene / Toluene / Xylene / CO | Treated as below-detection-limit |
+| AQI > 999 | Capped at 999 |
+| Duplicate `(City, Date)` | Checked |
+
+### Key Data Notes
+
+| Item | Note |
+|---|---|
+| **AQI imputation** | Preserves some seasonal variation; sparse months may understate extremes |
+| **AQI spikes** | Relative to each city's 30-day baseline |
+| **CO** | Zero-value treatment can affect high-risk elevation ratios |
+| **Lucknow PM10** | Global PM10 median used because source contains zero measurements |
+| **Ahmedabad** | 93 AQI values above 999 capped during preprocessing |
+
+Full cleaning statistics are available inside **Data Quality**.
+
+---
+
 ## ✦ Dashboard Structure
 
 ```text
@@ -90,53 +137,6 @@ mean pollutant concentration ÷ reference upper bound
 ```
 
 The dominant driver is recalculated dynamically according to the active filters.
-
----
-
-## 🧹 Data Preparation
-
-| Data issue | Treatment |
-|---|---|
-| Missing AQI | City-month median → city median |
-| Missing pollutants | City-month → city → global median |
-| Zero Benzene / Toluene / Xylene / CO | Treated as below-detection-limit |
-| AQI > 999 | Capped at 999 |
-| Duplicate `(City, Date)` | Checked |
-
-### Key Data Notes
-
-| Item | Note |
-|---|---|
-| **AQI imputation** | Preserves some seasonal variation; sparse months may understate extremes |
-| **AQI spikes** | Relative to each city's 30-day baseline |
-| **CO** | Zero-value treatment can affect high-risk elevation ratios |
-| **Lucknow PM10** | Global PM10 median used because source contains zero measurements |
-| **Ahmedabad** | 93 AQI values above 999 capped during preprocessing |
-
-Full cleaning statistics are available inside **Data Quality**.
-
----
-
-## 🌍 Dataset
-
-| Attribute | Value |
-|---|---|
-| **Source** | Central Pollution Control Board (CPCB), India |
-| **Dataset** | `city_day.csv` |
-| **Rows** | 29,531 |
-| **Columns** | 16 |
-| **Cities** | 26 |
-| **Coverage** | 2015-01-01 → 2020-07-01 |
-
-**Pollutants**
-
-`PM2.5` · `PM10` · `NO` · `NO₂` · `NOₓ` · `NH₃` · `CO` · `SO₂` · `O₃` · `Benzene` · `Toluene` · `Xylene`
-
-### Download
-
-🔗 **[Kaggle](https://www.kaggle.com/datasets/rohanrao/air-quality-data-in-india?select=city_day.csv)**
-or,  
-🔗 **[Google Drive](https://drive.google.com/file/d/1ADfDemnRyd1lutyx1u0srnDBfsj1dKJz/view?usp=sharing)**
 
 ---
 
