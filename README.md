@@ -4,6 +4,8 @@
 
 An interactive Streamlit dashboard for analysing urban air quality across **26 Indian cities** using CPCB city-day measurements from **2015–2020**.
 
+**Live App:** https://urban-air-quality-intelligence.streamlit.app/
+
 ---
 
 ## 📊 At a Glance
